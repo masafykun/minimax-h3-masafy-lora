@@ -42,13 +42,52 @@ assert_gpu_idle() {
   fi
 }
 
+assert_shared_gpu_safe() {
+  if [[ "${ALLOW_SHARED_GPU:-0}" != "1" ]]; then
+    echo "Shared-GPU launch requires ALLOW_SHARED_GPU=1." >&2
+    exit 2
+  fi
+
+  local utilization free_mib available_ram_mib queue_json
+  utilization="$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | head -n 1 | tr -d ' ')"
+  free_mib="$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -n 1 | tr -d ' ')"
+  if (( utilization > ${MAX_SHARED_GPU_UTILIZATION:-5} )); then
+    echo "Refusing shared launch: GPU utilization is ${utilization}%." >&2
+    exit 2
+  fi
+  if (( free_mib < ${MIN_SHARED_FREE_VRAM_MIB:-5500} )); then
+    echo "Refusing shared launch: only ${free_mib} MiB VRAM is free." >&2
+    exit 2
+  fi
+  available_ram_mib="$(awk '/^MemAvailable:/ {print int($2 / 1024)}' /proc/meminfo)"
+  if (( available_ram_mib < ${MIN_SHARED_AVAILABLE_RAM_MIB:-26000} )); then
+    echo "Refusing shared launch: only ${available_ram_mib} MiB system RAM is available." >&2
+    exit 2
+  fi
+
+  queue_json="$(curl -fsS --max-time 5 "${COMFYUI_QUEUE_URL:-http://127.0.0.1:8190/queue}")"
+  printf '%s' "${queue_json}" | "${PYTHON_BIN}" -c '
+import json
+import sys
+
+queue = json.load(sys.stdin)
+if queue.get("queue_running") or queue.get("queue_pending"):
+    raise SystemExit("Refusing shared launch: ComfyUI queue is not empty.")
+'
+  echo "shared_gpu_preflight=passed utilization=${utilization}% free_vram_mib=${free_mib} available_ram_mib=${available_ram_mib}"
+}
+
 usage() {
   cat <<'EOF'
 Usage: ./scripts/local_gpu.sh COMMAND
 
 Commands:
   bootstrap       Install the pinned AI Toolkit into the isolated host root.
+  download-models Download the H3 training weights without using the GPU.
   preflight       Validate the 100-step config without starting training.
+  preflight-coexist Validate the guarded 10-step config without starting training.
+  launch-coexist  Start a guarded 10-step run with explicit shared-GPU approval.
+  shared-gpu-check Validate shared-GPU conditions without starting training.
   launch-smoke    Start the 100-step run only when the GPU has no compute process.
   launch-full     Start the 800-step run only when the GPU has no compute process.
   gpu-check       Report whether the GPU guard considers the device idle.
@@ -65,9 +104,20 @@ case "${command}" in
     export CUDA_VISIBLE_DEVICES=""
     exec "${REPO_DIR}/scripts/bootstrap_ai_toolkit.sh"
     ;;
+  download-models)
+    prepare_dirs
+    export CUDA_VISIBLE_DEVICES=""
+    exec "${AI_TOOLKIT_VENV}/bin/python" "${REPO_DIR}/scripts/download_h3_models.py" \
+      --models-path "${MODELS_PATH}"
+    ;;
   preflight)
     prepare_dirs
     config="$(render_config smoke)"
+    exec "${REPO_DIR}/scripts/preflight.sh" "${config}"
+    ;;
+  preflight-coexist)
+    prepare_dirs
+    config="$(render_config coexist)"
     exec "${REPO_DIR}/scripts/preflight.sh" "${config}"
     ;;
   launch-smoke)
@@ -75,6 +125,17 @@ case "${command}" in
     assert_gpu_idle
     config="$(render_config smoke)"
     exec "${REPO_DIR}/scripts/launch_detached.sh" "${config}"
+    ;;
+  launch-coexist)
+    prepare_dirs
+    assert_shared_gpu_safe
+    export HEARTBEAT_INTERVAL="10"
+    config="$(render_config coexist)"
+    exec "${REPO_DIR}/scripts/launch_detached.sh" "${config}"
+    ;;
+  shared-gpu-check)
+    assert_shared_gpu_safe
+    echo "shared_gpu_safe=yes"
     ;;
   launch-full)
     prepare_dirs

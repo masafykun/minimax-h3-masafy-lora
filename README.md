@@ -99,6 +99,17 @@ cd /mnt/data/masafy-h3-lora/repo
 ./scripts/local_gpu.sh launch-smoke
 ```
 
+既存ComfyUIと共存確認を行う場合は、先にGPUを使用せずモデルを取得し、その後に
+明示的な共存モードで10ステップだけ実行します。共存モードはComfyUIキュー、GPU
+使用率、空きVRAM、利用可能なシステムRAMを検査し、条件を満たさなければ開始しません。
+MiniMax H3の初期化はVRAMが少なくても大容量のCPU RAMを使うため、既定では26GB以上の
+利用可能RAMを要求します。
+
+```bash
+./scripts/local_gpu.sh download-models
+ALLOW_SHARED_GPU=1 ./scripts/local_gpu.sh launch-coexist
+```
+
 ## Codex Cloud監視
 
 [docs/codex-cloud-monitoring.md](docs/codex-cloud-monitoring.md) の手順でCloud環境を作ります。
