@@ -79,6 +79,26 @@ tail -n 100 logs/train-smoke.log
 ./scripts/launch_detached.sh config/train_h3_masafy_full.yaml
 ```
 
+## 専用RTX 3060ホストでの隔離実行
+
+既存プロジェクトとの干渉を避けるため、GPUワークステーションでは
+`/mnt/data/masafy-h3-lora` だけを使用します。AI Toolkit、venv、モデル、
+Hugging Faceキャッシュはすべてこの配下に分離します。
+
+```bash
+cd /mnt/data/masafy-h3-lora/repo
+./scripts/local_gpu.sh paths
+./scripts/local_gpu.sh bootstrap
+./scripts/local_gpu.sh preflight
+```
+
+学習開始コマンドは既存のGPU計算プロセスを検出すると停止し、他プロセスを自動終了
+しません。GPUが空いていることを確認してから明示的に実行します。
+
+```bash
+./scripts/local_gpu.sh launch-smoke
+```
+
 ## Codex Cloud監視
 
 [docs/codex-cloud-monitoring.md](docs/codex-cloud-monitoring.md) の手順でCloud環境を作ります。

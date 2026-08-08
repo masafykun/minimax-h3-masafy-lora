@@ -14,7 +14,10 @@ if [[ -f "${REPO_DIR}/status/training.pid" ]]; then
   fi
 fi
 
-if [[ -w /proc/1/fd/1 && -w /proc/1/fd/2 ]]; then
+if [[ "${LAUNCHER_OUTPUT:-auto}" == "file" ]]; then
+  stdout_target="${LAUNCHER_LOG}"
+  stderr_target="${LAUNCHER_LOG}"
+elif [[ -w /proc/1/fd/1 && -w /proc/1/fd/2 ]]; then
   stdout_target=/proc/1/fd/1
   stderr_target=/proc/1/fd/2
 else

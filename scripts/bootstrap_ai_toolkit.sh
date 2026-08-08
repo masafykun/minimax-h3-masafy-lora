@@ -4,6 +4,7 @@ set -Eeuo pipefail
 AI_TOOLKIT_DIR="${AI_TOOLKIT_DIR:-/workspace/ai-toolkit}"
 AI_TOOLKIT_COMMIT="${AI_TOOLKIT_COMMIT:-f4e91305471a3727d52886ef6d410eb570cd484f}"
 AI_TOOLKIT_VENV="${AI_TOOLKIT_VENV:-/workspace/ai-toolkit-venv}"
+PYTHON_BIN="${PYTHON_BIN:-python3}"
 
 if [[ ! -d "${AI_TOOLKIT_DIR}/.git" ]]; then
   git clone --recursive https://github.com/ostris/ai-toolkit.git "${AI_TOOLKIT_DIR}"
@@ -18,7 +19,7 @@ git -C "${AI_TOOLKIT_DIR}" fetch --depth 1 origin "${AI_TOOLKIT_COMMIT}"
 git -C "${AI_TOOLKIT_DIR}" checkout --detach "${AI_TOOLKIT_COMMIT}"
 git -C "${AI_TOOLKIT_DIR}" submodule update --init --recursive
 
-python3 -m venv "${AI_TOOLKIT_VENV}"
+"${PYTHON_BIN}" -m venv "${AI_TOOLKIT_VENV}"
 "${AI_TOOLKIT_VENV}/bin/python" -m pip install --upgrade pip setuptools wheel
 
 if [[ ! -f "${AI_TOOLKIT_VENV}/.masafy-dependencies-complete" ]]; then

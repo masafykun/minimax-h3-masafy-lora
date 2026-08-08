@@ -5,6 +5,7 @@ REPO_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 CONFIG_PATH="${1:-${REPO_DIR}/config/train_h3_masafy_smoke.yaml}"
 AI_TOOLKIT_DIR="${AI_TOOLKIT_DIR:-/workspace/ai-toolkit}"
 AI_TOOLKIT_VENV="${AI_TOOLKIT_VENV:-/workspace/ai-toolkit-venv}"
+MASAFY_STORAGE_PATH="${MASAFY_STORAGE_PATH:-/workspace}"
 EXPECTED_COMMIT="f4e91305471a3727d52886ef6d410eb570cd484f"
 
 [[ -f "${CONFIG_PATH}" ]] || { echo "Missing config: ${CONFIG_PATH}" >&2; exit 1; }
@@ -25,7 +26,7 @@ if [[ "${train_images}" != "12" || "${train_captions}" != "12" ]]; then
 fi
 
 nvidia-smi --query-gpu=name,memory.total,driver_version --format=csv,noheader
-df -h /workspace
+df -h "${MASAFY_STORAGE_PATH}"
 
 "${AI_TOOLKIT_VENV}/bin/python" - "${CONFIG_PATH}" <<'PY'
 import sys
@@ -46,7 +47,9 @@ print(f"steps={process['train']['steps']}")
 print(f"resolutions={process['datasets'][0]['resolution']}")
 PY
 
-if [[ -d /workspace/ComfyUI/models ]]; then
+if [[ -n "${MODELS_PATH:-}" ]]; then
+  echo "models_path=${MODELS_PATH}"
+elif [[ -d /workspace/ComfyUI/models ]]; then
   echo "models_path=/workspace/ComfyUI/models"
 else
   echo "models_path=/workspace/models (missing files will be downloaded)"
