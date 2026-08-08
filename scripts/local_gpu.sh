@@ -10,12 +10,13 @@ export AI_TOOLKIT_DIR="${AI_TOOLKIT_DIR:-${HOST_ROOT}/ai-toolkit}"
 export AI_TOOLKIT_VENV="${AI_TOOLKIT_VENV:-${HOST_ROOT}/venv}"
 export MODELS_PATH="${MODELS_PATH:-${HOST_ROOT}/models}"
 export HF_HOME="${HF_HOME:-${HOST_ROOT}/hf-cache}"
+export PIP_CACHE_DIR="${PIP_CACHE_DIR:-${HOST_ROOT}/pip-cache}"
 export MASAFY_STORAGE_PATH="${MASAFY_STORAGE_PATH:-${HOST_ROOT}}"
 export PYTHON_BIN
 export LAUNCHER_OUTPUT="file"
 
 prepare_dirs() {
-  mkdir -p "${RUNTIME_DIR}/config" "${MODELS_PATH}" "${HF_HOME}"
+  mkdir -p "${RUNTIME_DIR}/config" "${MODELS_PATH}" "${HF_HOME}" "${PIP_CACHE_DIR}"
 }
 
 render_config() {
@@ -95,6 +96,7 @@ case "${command}" in
     printf 'venv=%s\n' "${AI_TOOLKIT_VENV}"
     printf 'models=%s\n' "${MODELS_PATH}"
     printf 'hf_home=%s\n' "${HF_HOME}"
+    printf 'pip_cache=%s\n' "${PIP_CACHE_DIR}"
     printf 'runtime=%s\n' "${RUNTIME_DIR}"
     ;;
   *)

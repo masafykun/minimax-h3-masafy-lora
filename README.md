@@ -83,7 +83,7 @@ tail -n 100 logs/train-smoke.log
 
 既存プロジェクトとの干渉を避けるため、GPUワークステーションでは
 `/mnt/data/masafy-h3-lora` だけを使用します。AI Toolkit、venv、モデル、
-Hugging Faceキャッシュはすべてこの配下に分離します。
+Hugging Faceキャッシュ、pipキャッシュはすべてこの配下に分離します。
 
 ```bash
 cd /mnt/data/masafy-h3-lora/repo
