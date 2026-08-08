@@ -97,6 +97,8 @@ payload.update(
         "exit_code": exit_code,
     }
 )
+if exit_code == 0 and payload.get("total_steps") is not None:
+    payload["current_step"] = payload["total_steps"]
 temporary = status_path.with_suffix(status_path.suffix + ".tmp")
 temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 os.replace(temporary, status_path)

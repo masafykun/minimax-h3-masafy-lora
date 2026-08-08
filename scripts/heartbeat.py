@@ -14,9 +14,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
-STEP_PATTERNS = (
-    re.compile(r"(?:step|steps?)\s*[:=/]?\s*(\d+)(?:\s*/\s*(\d+))?", re.I),
-    re.compile(r"\d+%\|[^\r\n]*?\|\s*(\d+)\s*/\s*(\d+)\s*\["),
+PROGRESS_PATTERN = re.compile(r"\d+%\|[^\r\n]*?\|\s*(\d+)\s*/\s*(\d+)\s*\[")
+EXPLICIT_STEP_PATTERN = re.compile(
+    r"(?:step|steps?)\s*[:=/]?\s*(\d+)(?:\s*/\s*(\d+))?", re.I
 )
 
 
@@ -44,13 +44,23 @@ def tail_text(path: Path, max_bytes: int = 128 * 1024) -> str:
         return handle.read().decode("utf-8", errors="replace")
 
 
-def parse_step(text: str) -> tuple[int | None, int | None]:
-    for pattern in STEP_PATTERNS:
-        matches = list(pattern.finditer(text))
-        if matches:
-            match = matches[-1]
-            current = int(match.group(1))
-            total = int(match.group(2)) if match.lastindex and match.lastindex >= 2 and match.group(2) else None
+def parse_step(
+    text: str, expected_total: int | None = None
+) -> tuple[int | None, int | None]:
+    # Prefer tqdm training progress. Hugging Face downloads use similar counters,
+    # so reject counters whose total does not match the configured train steps.
+    for match in reversed(list(PROGRESS_PATTERN.finditer(text))):
+        current = int(match.group(1))
+        total = int(match.group(2))
+        if expected_total is None or total == expected_total:
+            return current, total
+
+    for match in reversed(list(EXPLICIT_STEP_PATTERN.finditer(text))):
+        current = int(match.group(1))
+        total = int(match.group(2)) if match.group(2) else None
+        if expected_total is not None and total is not None and total != expected_total:
+            continue
+        if expected_total is None or current <= expected_total:
             return current, total
     return None, None
 
@@ -124,7 +134,7 @@ def main() -> int:
     while not stopped:
         alive = process_alive(args.pid)
         log_tail = tail_text(args.log)
-        current_step, parsed_total_steps = parse_step(log_tail)
+        current_step, parsed_total_steps = parse_step(log_tail, config_total_steps)
         total_steps = parsed_total_steps or config_total_steps
         nonempty_lines = [line.strip() for line in log_tail.splitlines() if line.strip()]
         payload: dict[str, object] = {
