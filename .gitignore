@@ -1,0 +1,24 @@
+.DS_Store
+.env
+.venv/
+__pycache__/
+*.pyc
+*.log
+
+# Never publish training images or generated checkpoints from this repository.
+dataset/train/
+dataset/validation/
+dataset/excluded/
+dataset/dataset-audit.json
+output/*
+!output/.gitkeep
+status/*
+!status/.gitkeep
+records/*.json
+records/*.csv
+
+# Local credentials must remain outside Git.
+.runpod-token
+*.pem
+*.key
+id_*

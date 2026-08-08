@@ -1,0 +1,101 @@
+{
+  "trigger": "masafy_character",
+  "entries": [
+    {
+      "source": "1_OK.jpg",
+      "output": "masafy_001",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, smiling and making an OK hand gesture, Japanese sticker text, white background"
+    },
+    {
+      "source": "2_マサフィー参上！.jpg",
+      "output": "masafy_002",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, confident full body standing pose, Japanese sticker text, bright yellow radial background"
+    },
+    {
+      "source": "3_わからん！.jpg",
+      "output": "masafy_003",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, confused full body pose with raised shoulders, Japanese sticker text, bright yellow radial background"
+    },
+    {
+      "source": "4_PCカタカタ.jpg",
+      "output": "masafy_004",
+      "split": "validation",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, typing on a computer keyboard, focused expression, white background"
+    },
+    {
+      "source": "5_キター.jpg",
+      "output": "masafy_005",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, excited jumping full body pose, Japanese sticker text, white background"
+    },
+    {
+      "source": "6_ぴえん.png",
+      "output": "masafy_006",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, crying close-up portrait with large watery eyes, white background"
+    },
+    {
+      "source": "7_NO_あとでフォント修正バージョン来る.jpeg",
+      "output": "masafy_007",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, crossing both arms to say no, shocked expression, Japanese sticker text, white background"
+    },
+    {
+      "source": "8_ありがとう_塗り残し修正.jpg",
+      "output": "masafy_008",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, clasping hands with grateful sparkling eyes and blushing cheeks, Japanese sticker text, white background"
+    },
+    {
+      "source": "9_悪い顔でへへへ_塗り残し修正.jpg",
+      "output": "masafy_009",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, mischievous close-up portrait with sparkling eyes and one hand near the mouth, Japanese sticker text, white background"
+    },
+    {
+      "source": "10_イケメン.jpeg",
+      "output": "masafy_010",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, handsome sparkling close-up portrait, Japanese sticker text, pink decorative background"
+    },
+    {
+      "source": "11_てへぺろ.jpg",
+      "output": "masafy_011",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, playful close-up portrait with tongue out and one hand on the head, Japanese sticker text, white background"
+    },
+    {
+      "source": "12_闇マサフィー１.jpeg",
+      "output": "masafy_012",
+      "split": "excluded",
+      "caption": "dark alternate version of masafy_character holding a wooden mallet, glowing eyes, red flame background"
+    },
+    {
+      "source": "13_闇マサフィー２_下書きあり.jpeg",
+      "output": "masafy_013",
+      "split": "excluded",
+      "caption": "dark alternate version of masafy_character with props and sketch lines, white background"
+    },
+    {
+      "source": "14_えw.jpeg",
+      "output": "masafy_014",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, surprised close-up portrait, Japanese sticker text, white background"
+    },
+    {
+      "source": "15_NOO.jpeg",
+      "output": "masafy_015",
+      "split": "train",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles and a pink patterned scarf, shocked close-up portrait with open mouth, Japanese sticker text, white background"
+    },
+    {
+      "source": "16_先生.jpg",
+      "output": "masafy_016",
+      "split": "validation",
+      "caption": "masafy_character, a cute anthropomorphic red panda wearing brown aviator goggles, a pink patterned scarf and a teacher lanyard, pointing with a teaching stick, full body pose, white background"
+    }
+  ]
+}
