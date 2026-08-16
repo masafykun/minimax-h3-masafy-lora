@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Read-only RunPod Pod status check for Codex Cloud."""
+"""Read-only RunPod Pod status check.
+
+Reports status, GPU, hourly cost and uptime without mutating the Pod.
+Reads the token from RUNPOD_API_KEY or from the token file.
+"""
 
 from __future__ import annotations
 
@@ -23,8 +27,8 @@ def read_token(token_file: Path) -> str:
         token = token_file.read_text(encoding="utf-8").strip()
     if not token:
         raise RuntimeError(
-            "RunPod token is unavailable. Prefer the RunPod MCP; otherwise configure "
-            "RUNPOD_API_KEY as a Codex Cloud setup secret."
+            "RunPod token is unavailable. Set RUNPOD_API_KEY or place the token "
+            "in ~/.config/masafy-runpod/api-token."
         )
     return token
 
