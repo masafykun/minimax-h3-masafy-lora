@@ -5,11 +5,10 @@ __pycache__/
 *.pyc
 *.log
 
-# Never publish training images or generated checkpoints from this repository.
-dataset/train/
-dataset/validation/
-dataset/excluded/
-dataset/dataset-audit.json
+# 学習画像とキャプションは公開する（本人の判断、2026-08-15）。
+# LoRAの重みは容量の都合で Hugging Face 側に置く。
+*.safetensors
+output/
 output/*
 !output/.gitkeep
 status/*

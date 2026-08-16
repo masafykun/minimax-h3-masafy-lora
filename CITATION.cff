@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+title: "MiniMax H3 Character LoRA: System RAM, Not VRAM, Is the Binding Constraint When Fine-tuning a 33B Omni-modal Video Model"
+message: "If you use this software or model, please cite it using this metadata."
+type: software
+version: v1.0.0
+date-released: "2026-08-15"
+authors:
+  - family-names: Suzuki
+    given-names: Masato
+    alias: masafykun
+    orcid: "https://orcid.org/0009-0000-7977-2756"
+    website: "https://masafy.org/"
+repository-code: "https://github.com/masafykun/minimax-h3-masafy-lora"
+url: "https://huggingface.co/masafy/minimax-h3-masafy-lora"
+license: MIT
+keywords:
+  - video generation
+  - diffusion transformer
+  - LoRA
+  - low-rank adaptation
+  - MiniMax H3
+  - system memory
+  - consumer GPU
+  - reproducibility
+abstract: >-
+  A report on fine-tuning a character LoRA for MiniMax H3, a 33B omni-modal
+  video generation model. Contrary to the common assumption that GPU VRAM is
+  the limiting factor, the measured peak VRAM during training was 3,959 MiB
+  while training failed on hosts with 50 GB of system RAM and succeeded on a
+  host with 188 GB. The trained adapter transfers across quantization formats
+  and runs inference within 9.3 GB of VRAM on a consumer GPU.

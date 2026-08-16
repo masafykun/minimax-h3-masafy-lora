@@ -1,0 +1,65 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\citation{suzuki2026sd15lora}
+\citation{suzuki2026krea2lora}
+\citation{suzuki2026sd15lora}
+\citation{suzuki2026krea2lora}
+\citation{hu2022lora}
+\citation{aitoolkit2026}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{1}{section.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Model composition}}{1}{table.1}\protected@file@percent }
+\newlabel{tab:model}{{1}{1}{Model composition}{table.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Setup}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Model composition}{1}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Training configuration}{1}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Environments}{2}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Q1: Identifying the constraint}{2}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Failure on the local GPU}{2}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Reproducing and isolating the failure}{2}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}RAM allocation does not track price}{2}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}The successful run}{2}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}A failure mode worth naming}{2}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Q2: Transfer across quantizations}{2}{section.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces The training set: 12 images of the character drawn by the author. Most carry the die-cut border of their original sticker use.}}{3}{figure.1}\protected@file@percent }
+\newlabel{fig:dataset}{{1}{3}{The training set: 12 images of the character drawn by the author. Most carry the die-cut border of their original sticker use}{figure.1}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}Q3: What the LoRA contributes}{3}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Ablating the adapter}{3}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Strength and training length}{3}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Cross-validation and the recommended setting}{3}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Environments and outcomes. VRAM does not predict success; system RAM does.}}{4}{table.2}\protected@file@percent }
+\newlabel{tab:env}{{2}{4}{Environments and outcomes. VRAM does not predict success; system RAM does}{table.2}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces VRAM does not predict success; system RAM does. The dashed line marks measured peak VRAM during training (3.9\,GB).}}{4}{figure.2}\protected@file@percent }
+\newlabel{fig:constraint}{{2}{4}{VRAM does not predict success; system RAM does. The dashed line marks measured peak VRAM during training (3.9\,GB)}{figure.2}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Advertised host allocations}}{4}{table.3}\protected@file@percent }
+\newlabel{tab:ram}{{3}{4}{Advertised host allocations}{table.3}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces With and without the adapter, all else fixed}}{4}{table.4}\protected@file@percent }
+\newlabel{tab:ablation}{{4}{4}{With and without the adapter, all else fixed}{table.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Training loss over 800 steps (799 points recorded).}}{4}{figure.3}\protected@file@percent }
+\newlabel{fig:loss}{{3}{4}{Training loss over 800 steps (799 points recorded)}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}What the dataset smuggles in}{4}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Same seed, same reference image, adapter toggled. The top row renders as flat illustration; the bottom row renders individual strands of fur.}}{5}{figure.4}\protected@file@percent }
+\newlabel{fig:abframes}{{4}{5}{Same seed, same reference image, adapter toggled. The top row renders as flat illustration; the bottom row renders individual strands of fur}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Style shift against adapter strength. Output size serves as a proxy for how far the style has moved.}}{5}{figure.5}\protected@file@percent }
+\newlabel{fig:strength}{{5}{5}{Style shift against adapter strength. Output size serves as a proxy for how far the style has moved}{figure.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}The trigger token}{5}{subsection.5.5}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Effect of training length. Style shift plateaus after roughly step 400.}}{5}{figure.6}\protected@file@percent }
+\newlabel{fig:checkpoint}{{6}{5}{Effect of training length. Style shift plateaus after roughly step 400}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}On output size as a proxy}{5}{subsection.5.6}\protected@file@percent }
+\citation{suzuki2026sd15lora}
+\citation{suzuki2026krea2lora}
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Adapter strength at checkpoint 500. At 1.2 a heavy dark contour wraps the whole character.}}{6}{figure.7}\protected@file@percent }
+\newlabel{fig:stframes}{{7}{6}{Adapter strength at checkpoint 500. At 1.2 a heavy dark contour wraps the whole character}{figure.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Limitations}{6}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{6}{section.7}\protected@file@percent }
+\bibcite{suzuki2026sd15lora}{1}
+\bibcite{suzuki2026krea2lora}{2}
+\bibcite{hu2022lora}{3}
+\bibcite{peebles2023dit}{4}
+\bibcite{lipman2023flowmatching}{5}
+\bibcite{ruiz2023dreambooth}{6}
+\bibcite{qwenimage2025}{7}
+\bibcite{aitoolkit2026}{8}
+\bibcite{comfyui2026}{9}
+\gdef \@abspage@last{7}

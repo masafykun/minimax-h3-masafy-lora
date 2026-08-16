@@ -1,0 +1,10 @@
+env,phase,seconds
+runpod_rtx6000ada,bootstrap_dependencies,147
+runpod_rtx6000ada,torch_cu126_reinstall,142
+runpod_rtx6000ada,model_download_41gb_parallel,516
+runpod_rtx6000ada,training_800_steps,7215
+runpod_h200,bootstrap_dependencies,366
+runpod_h200,torch_cu126_reinstall,142
+runpod_h200,model_download_41gb_parallel,516
+runpod_h200,training_smoke_100_steps,721
+runpod_a40,bootstrap_dependencies,2100

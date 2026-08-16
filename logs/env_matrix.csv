@@ -1,0 +1,6 @@
+env,gpu,vram_gb,system_ram_gb,usd_per_hour,result,note
+local_rtx3060,RTX 3060,12,30,electricity_only,FAIL,0 steps in 2h25m; GPU util 0%; disk swap suspected
+runpod_a40_1,A40,48,50,0.44,FAIL,OOM kill (137) while loading text encoder; low_vram=true
+runpod_a40_2,A40,48,50,0.44,FAIL,OOM kill (137) at same point; low_vram=false
+runpod_h200,H200 SXM,141,233,4.59,OK,smoke 100 steps completed; 3.66 s/it at res 512
+runpod_rtx6000ada,RTX 6000 Ada,48,188,0.84,OK,full 800 steps completed; 9.04 s/it at res 512+768

@@ -1,0 +1,32 @@
+MiniMax H3 Ref2VA character LoRA - run info
+==========================================
+
+base model      MiniMax H3 (33B omni-modal video+audio)
+  transformer   minimax_h3_ref2va_pruned_int8_convrot.safetensors   20.0 GB
+  text encoder  qwen3vl_32b_minimax_h3_nvfp4_awq.safetensors        15.7 GB  (Qwen3-VL 32B)
+  vae           video fp16 + audio fp32                              5.5 GB
+  total                                                             41.2 GB
+
+trainer         ostris/ai-toolkit @ f4e9130
+method          LoRA rank 16 / alpha 16
+target modules  attn.qkv_proj, attn.out_proj, mlp.fc1, mlp.fc2
+applied to      50 blocks + token_refiner = 208 modules (416 tensors)
+dataset         12 train / 2 validation / 2 excluded, 1000x1000
+resolution      512 and 768
+frames          1 (still images treated as single-frame video)
+batch size      1
+grad ckpt       on
+dtype           bf16
+steps           800  (500 found sufficient in ablation)
+low_vram        false  (true causes OOM on hosts with limited system RAM)
+
+winning env     RunPod RTX 6000 Ada, 48 GB VRAM, 188 GB system RAM, $0.84/h
+wall clock      2h 00m 15s for 800 steps (9.04 s/it)
+peak vram       3,959 MiB  (2.8% of the 141 GB card used for the smoke run)
+peak system ram NOT MEASURED - see paper section 9, limitation 1
+
+output          155 MB safetensors, plus checkpoints at 300/400/500/600/700
+
+inference       ComfyUI + GGUF Q3_K_M, 208 patches attached, 0 key mismatches
+inference vram  9,326 MiB  (fits a 12 GB consumer GPU)
+inference time  ~13 min per 5 s clip at 864x480 on RTX 3060

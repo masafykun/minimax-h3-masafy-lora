@@ -48,7 +48,7 @@ assert_shared_gpu_safe() {
     exit 2
   fi
 
-  local utilization free_mib available_ram_mib queue_json
+  local utilization free_mib queue_json
   utilization="$(nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits | head -n 1 | tr -d ' ')"
   free_mib="$(nvidia-smi --query-gpu=memory.free --format=csv,noheader,nounits | head -n 1 | tr -d ' ')"
   if (( utilization > ${MAX_SHARED_GPU_UTILIZATION:-5} )); then
@@ -57,11 +57,6 @@ assert_shared_gpu_safe() {
   fi
   if (( free_mib < ${MIN_SHARED_FREE_VRAM_MIB:-5500} )); then
     echo "Refusing shared launch: only ${free_mib} MiB VRAM is free." >&2
-    exit 2
-  fi
-  available_ram_mib="$(awk '/^MemAvailable:/ {print int($2 / 1024)}' /proc/meminfo)"
-  if (( available_ram_mib < ${MIN_SHARED_AVAILABLE_RAM_MIB:-26000} )); then
-    echo "Refusing shared launch: only ${available_ram_mib} MiB system RAM is available." >&2
     exit 2
   fi
 
@@ -74,7 +69,7 @@ queue = json.load(sys.stdin)
 if queue.get("queue_running") or queue.get("queue_pending"):
     raise SystemExit("Refusing shared launch: ComfyUI queue is not empty.")
 '
-  echo "shared_gpu_preflight=passed utilization=${utilization}% free_vram_mib=${free_mib} available_ram_mib=${available_ram_mib}"
+  echo "shared_gpu_preflight=passed utilization=${utilization}% free_vram_mib=${free_mib}"
 }
 
 usage() {

@@ -1,0 +1,9 @@
+item,detail,usd,basis
+runpod_a40,failed attempts incl. 83 min idle after OOM,1.25,estimated from elapsed x hourly rate
+runpod_h200,setup + smoke 100 steps (34 min),1.54,estimated from elapsed x hourly rate
+runpod_3090_probe,"RAM probe pods, terminated immediately",0.05,estimated
+runpod_rtx6000ada,setup + full 800 steps (2.5 h),1.89,estimated from elapsed x hourly rate
+local_inference,24 verification videos on RTX 3060,0.0,"electricity only, not measured"
+SUBTOTAL_ESTIMATED,,4.73,sum of the above
+MEASURED_BALANCE_DELTA,"from $17.99 (2026-08-11T12:33Z, mid H200 run) to $14.55 (after full run)",3.44,measured via RunPod API
+NOTE,starting balance before the A40 phase was never measured; total is therefore approximate,,see paper section 9

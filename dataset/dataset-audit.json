@@ -1,0 +1,155 @@
+{
+  "trigger": "masafy_character",
+  "source": "/Users/masatosuzuki/Downloads/提出バージョン",
+  "counts": {
+    "excluded": 2,
+    "train": 12,
+    "validation": 2
+  },
+  "entries": [
+    {
+      "source": "1_OK.jpg",
+      "output": "masafy_001.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "ba721b9527b1bf979fe4811077e70b53f302e72ed77896997011f840a9eca9e9",
+      "prepared_sha256": "4ee33e4a15f70f2bfe1397e5b2cab54652bc679a43abece750d2e3091b2ee03e"
+    },
+    {
+      "source": "2_マサフィー参上！.jpg",
+      "output": "masafy_002.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "d9c7e9c9a94bed287ea84919a829a24ede832b4ceb7adc5db13989eccbddba14",
+      "prepared_sha256": "731e47464a2013fe8e21dfdbbf23558304e93ddb8705f0fc033e64622601febe"
+    },
+    {
+      "source": "3_わからん！.jpg",
+      "output": "masafy_003.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "d6c9302828642222d78bb736cc3d719cb2917eb267ab27d021a88ae34b5299d9",
+      "prepared_sha256": "fd6b66f7d3c7a3bc27941871bd62470e1a293add1559217de6aa410b4a8acc20"
+    },
+    {
+      "source": "4_PCカタカタ.jpg",
+      "output": "masafy_004.png",
+      "split": "validation",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "e82921b9e8fccc1555af55a38a2ed60cfdc5785b7bcd7889884a0b16e5e48189",
+      "prepared_sha256": "34d59a689513352466af5836b475aaf3bb48233fe785e74069e6ebf2b8f74a85"
+    },
+    {
+      "source": "5_キター.jpg",
+      "output": "masafy_005.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "2cbe3fdf3e5217ad0e492362ed8412b64ce78042183dcde99aed107772cd0796",
+      "prepared_sha256": "5867337cdff4fea7469afcf7812691e3d704b0d439c0f4d15d1d5b5c705ac38a"
+    },
+    {
+      "source": "6_ぴえん.png",
+      "output": "masafy_006.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "2931195891ccac8767feff4ba9dd3a34da4de27ae343a0f25006b685b61f7885",
+      "prepared_sha256": "5e074130971a260b51459fd095bd489ab0cc72f0da86ef72529c2f30f4323bf4"
+    },
+    {
+      "source": "7_NO_あとでフォント修正バージョン来る.jpeg",
+      "output": "masafy_007.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "ccebe6bbf67989b25d7a14bc120e5c8998f25090860ac81adff0975d6b2a3316",
+      "prepared_sha256": "ab6d4f675ec92f7f2bee75f45849cf789b7fb094d68db08e0eea76b592cde727"
+    },
+    {
+      "source": "8_ありがとう_塗り残し修正.jpg",
+      "output": "masafy_008.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "d0db5483685bebe1efb0be6e5d9f4b4c163b8fcdb575e32e61c4e751885b46ac",
+      "prepared_sha256": "90fc91a85c0be44da1138480546b92feda0cc7f336ea94109ae653e7f7d930eb"
+    },
+    {
+      "source": "9_悪い顔でへへへ_塗り残し修正.jpg",
+      "output": "masafy_009.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "7edb12dbdd35eb7aefc9d03ee68326707520a56bfc0de366a07a2ec1c55cea83",
+      "prepared_sha256": "4180a7b70e886faa7a6d537db790b1267c57e708269d6de07e9d07ee2fd01dd6"
+    },
+    {
+      "source": "10_イケメン.jpeg",
+      "output": "masafy_010.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "b2b66c591d85fb035df7133a6515b974f6444985c4b0622cba0ffe175aa795de",
+      "prepared_sha256": "61fd26e28b386c9e51006a92d69f5b6617f89c43442c6ea71f289f903280b7b7"
+    },
+    {
+      "source": "11_てへぺろ.jpg",
+      "output": "masafy_011.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "af97e0be371043fc84fb3bdaba00cc0cd71c6b1777afd7567305e72568e8c05c",
+      "prepared_sha256": "5e2ca96f5d2639462fffb8d3908dd5842d0949d3bfa80ca37b0ab1b957c43cf0"
+    },
+    {
+      "source": "12_闇マサフィー１.jpeg",
+      "output": "masafy_012.png",
+      "split": "excluded",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "1f466e9ccada494ce5f688560948b27ef21783e5085afa023baca5a3634f0499",
+      "prepared_sha256": "b84943fc6e71a89722f58e81797138252ff5185868f99f53848d4987bf0d0ee7"
+    },
+    {
+      "source": "13_闇マサフィー２_下書きあり.jpeg",
+      "output": "masafy_013.png",
+      "split": "excluded",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "245521baa1dee2650c66d6d51b6acfee40283795127e397c1f009a8841e88cd7",
+      "prepared_sha256": "c7008bbfdb80a9ee5609df73b424f3ea6caf3a8645889979be0651e37ade635f"
+    },
+    {
+      "source": "14_えw.jpeg",
+      "output": "masafy_014.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "85dfe85625cc12ac50c83dd75331dc4967801c9eb4d8943da106f31b454de7a9",
+      "prepared_sha256": "08062520e62d318458344d2cad5fafbca5a566cb4b8d183331cf28fdfd3f3abe"
+    },
+    {
+      "source": "15_NOO.jpeg",
+      "output": "masafy_015.png",
+      "split": "train",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "49d0bd8d407ee1a9e2364e50709b1049b1ba5baadc5d42d7830f918d8f8d58ec",
+      "prepared_sha256": "552487cb228a85e7c1485405faae1dbf59247a2780ff0396c11aa61b443b11a6"
+    },
+    {
+      "source": "16_先生.jpg",
+      "output": "masafy_016.png",
+      "split": "validation",
+      "width": 1000,
+      "height": 1000,
+      "source_sha256": "3c0fa30b55d513b15b48b229167f9cb216397d8bffcfb2d6949baaa78d1751f7",
+      "prepared_sha256": "931d2a36eab313bdf70e824cbcb4dc0ca260c1a719158f0bf12572283e471ed1"
+    }
+  ]
+}

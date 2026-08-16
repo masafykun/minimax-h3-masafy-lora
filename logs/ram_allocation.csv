@@ -1,0 +1,8 @@
+gpu,vram_gb,listed_ram_gb,measured_ram_gb,tier,note
+RTX 3090,24,125,,secure(listed),listed only; no stock available
+RTX 3090,24,,41,community,"measured, host A"
+RTX 3090,24,,30,community,"measured, host B (3 draws)"
+RTX 4090,24,41,,secure(listed),listed only
+A40,48,50,50,secure,listed and measured agree
+RTX 6000 Ada,48,167,188,secure,measured higher than listed
+H200,141,276,233,secure,cgroup limit lower than listed
