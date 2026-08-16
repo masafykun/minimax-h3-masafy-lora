@@ -11,6 +11,7 @@ __pycache__/
 
 # 検証動画は小さいので同梱する（論文のアブレーションの根拠）
 !samples/*.mp4
+!samples/gif/*.gif
 output/
 output/*
 !output/.gitkeep
