@@ -21,3 +21,11 @@ records/*.csv
 *.pem
 *.key
 id_*
+
+# LaTeX の中間ファイル（PDFとtexのみ追跡する）
+*.aux
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
